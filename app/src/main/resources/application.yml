@@ -24,5 +24,13 @@ spring:
     hibernate:
       ddl-auto: none
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 server:
   port: 8000
+
+debug: true

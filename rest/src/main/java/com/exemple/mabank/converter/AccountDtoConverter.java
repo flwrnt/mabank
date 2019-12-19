@@ -6,6 +6,7 @@ import com.exemple.mabank.model.Account;
 public class AccountDtoConverter {
 
   public static AccountDto toDto(Account account) {
+
     return new AccountDto(account.getId(), account.getLabel(), account.getMoney(), account.getDevise());
   }
 

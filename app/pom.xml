@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>app</artifactId>
-    <packaging>jar</packaging>
+    <name>MaBank - APP</name>
     <dependencies>
 
         <dependency>
             <groupId>com.exemple</groupId>
-            <artifactId>dao</artifactId>
+            <artifactId>rest</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

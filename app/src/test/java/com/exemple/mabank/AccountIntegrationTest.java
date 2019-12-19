@@ -2,7 +2,6 @@ package com.exemple.mabank;
 
 import com.exemple.mabank.model.Account;
 import com.exemple.mabank.model.Devise;
-import com.exemple.mabank.service.AccountService;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.junit.Test;
