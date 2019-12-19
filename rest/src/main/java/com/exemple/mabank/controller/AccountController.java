@@ -18,14 +18,12 @@ public class AccountController implements AccountApi {
   private AccountService accountService;
 
   @Override
-  @GetMapping(path = "/accounts", produces = "application/json")
   public List<AccountDto> getAllAccounts() {
     return accountService.findAll().stream().map(AccountDtoConverter::toDto).collect(Collectors.toList());
   }
 
   @Override
-  @PostMapping(path = "/account", produces = "application/json")
-  public AccountDto save(@RequestBody AccountDto accountDto) {
+  public AccountDto save(AccountDto accountDto) {
     return AccountDtoConverter.toDto(accountService.save(AccountDtoConverter.fromDto(accountDto)));
   }
 }

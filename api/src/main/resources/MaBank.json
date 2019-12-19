@@ -1,0 +1,95 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "MaBank",
+    "version" : "0.0.1-SNAPSHOT",
+    "title" : "MaBank",
+    "contact" : {
+      "name" : "flwrnt",
+      "url" : "http://flwrnt.fr",
+      "email" : "flwrnt@gmail.com"
+    }
+  },
+  "host" : "localhost:8000",
+  "tags" : [ {
+    "name" : "Account",
+    "description" : "Gestion des comptes bancaire"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/account" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Sauvegarde d'un compte bancaire",
+        "description" : "",
+        "operationId" : "saveUsingPOST",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Compte a sauvegarder",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/AccountDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AccountDto"
+            }
+          }
+        }
+      }
+    },
+    "/accounts" : {
+      "get" : {
+        "tags" : [ "Account" ],
+        "summary" : "Récupérartion des comptes bancaires",
+        "description" : "",
+        "operationId" : "getAllAccountsUsingGET",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AccountDto"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AccountDto" : {
+      "type" : "object",
+      "required" : [ "devise", "id", "label", "money" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "description" : "identifiant du compte bancaire"
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "libellé du compte bancaire"
+        },
+        "money" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "argent disponible sur le compte bancaire"
+        },
+        "devise" : {
+          "type" : "string",
+          "description" : "devise du compte bancaire",
+          "enum" : [ "EUR", "USD", "CAD" ]
+        }
+      },
+      "description" : "compte bancaire"
+    }
+  }
+}

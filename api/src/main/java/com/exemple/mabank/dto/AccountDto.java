@@ -11,18 +11,19 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(description = "compte bancaire")
 public class AccountDto {
 
-  @ApiModelProperty("identifiant du compte bancaire")
-  private final UUID id;
+  @ApiModelProperty(value = "identifiant du compte bancaire", required = true)
+  private UUID id;
 
-  @ApiModelProperty("libellé du compte bancaire")
-  private final String label;
+  @ApiModelProperty(value = "libellé du compte bancaire", required = true)
+  private String label;
 
-  @ApiModelProperty("argent disponible sur le compte bancaire")
-  private final Double money;
+  @ApiModelProperty(value = "argent disponible sur le compte bancaire", required = true)
+  private Double money;
 
-  @ApiModelProperty("devise du compte bancaire")
-  private final Devise devise;
+  @ApiModelProperty(value = "devise du compte bancaire", required = true)
+  private Devise devise;
 }
