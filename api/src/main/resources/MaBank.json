@@ -43,6 +43,31 @@
         }
       }
     },
+    "/account/{id}" : {
+      "get" : {
+        "tags" : [ "Account" ],
+        "summary" : "Récupérartion d'un compte bancaire",
+        "description" : "",
+        "operationId" : "getAccountUsingGET",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "identifiant du compte",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AccountDto"
+            }
+          }
+        }
+      }
+    },
     "/accounts" : {
       "get" : {
         "tags" : [ "Account" ],

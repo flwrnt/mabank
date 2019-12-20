@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AccountService {
@@ -19,5 +20,9 @@ public class AccountService {
 
   public Account save(Account account) {
     return accountDao.save(account);
+  }
+
+  public Account findById(UUID id) {
+    return accountDao.findById(id);
   }
 }

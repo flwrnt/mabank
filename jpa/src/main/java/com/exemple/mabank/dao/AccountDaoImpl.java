@@ -4,12 +4,14 @@ import com.exemple.mabank.converter.AccountConverter;
 import com.exemple.mabank.entity.AccountEntity;
 import com.exemple.mabank.model.Account;
 import com.exemple.mabank.repository.AccountRepository;
+import javassist.NotFoundException;
 import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -28,7 +30,13 @@ public class AccountDaoImpl implements AccountDao {
 
   @Override
   public Account findById(UUID id) {
-    throw new NotYetImplementedException("todo");
+    Optional<AccountEntity> optAccount = accountRepository.findById(id);
+
+    if (optAccount.isEmpty()) {
+      throw new RuntimeException("le compte n'existe pas");
+    }
+
+    return AccountConverter.toModel(optAccount.get());
   }
 
   @Override
